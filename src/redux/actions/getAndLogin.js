@@ -31,13 +31,13 @@ export const login = (data) => (dispatch) => {
       window.localStorage.setItem('token', data.token)
       typeof data.token == 'undefined'
         ? dispatch({ type: constants.LOGIN_FAILED })
-        : dispatch({ type: constants.LOGIN_SUCCESS, payload: data.token })
+        : dispatch({ type: constants.LOGIN_SUCCESS, payload: data.token, payload: data.is_vlad })
     })
     .catch((err) => {
       dispatch({ type: constants.LOGIN_FAILED })
     })
 }
-
+ 
 export const getData = (token) => (dispatch) => {
   const url = `${point}/api/auth/users/me/`
   dispatch({ type: constants.GET_DATA_LOADING })

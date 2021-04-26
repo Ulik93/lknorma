@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux"
 import {
   deleteExcelFileTable,
   getExcelFileTable,
-  sendExcelFileTable,
+  sendExcelFileTable
 } from "../../redux/actions/DocumentsActions/document"
 
 export default function MyDocuments({ docsList }) {
@@ -19,7 +19,7 @@ export default function MyDocuments({ docsList }) {
   const handleDeleteExcelFile = (id) => {
     dispatch(deleteExcelFileTable(id))
   }
-  const handleSendExcelFile = (id, is_order) => {
+  const handleSendExcelFile = (id, is_order) =>{
     dispatch(sendExcelFileTable(id, is_order))
   }
 
@@ -31,7 +31,7 @@ export default function MyDocuments({ docsList }) {
       <Grid container direction="row" justify="flex-start" alignItems="center">
         {(docsList || []).map((excel) => (
           <div key={excel.id} className="card-file">
-            <div className="card-header">{excel.id}</div>
+            <div className="card-header">{excel.file_name}</div>
             <CardMedia className="icon-card" type="file" image={ExcelIcon} />
             <NavLink to={`/docs/my_doc/${excel.id}`}>
               <h5

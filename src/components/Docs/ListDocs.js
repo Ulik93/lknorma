@@ -3,6 +3,7 @@ import { CardMedia, Typography } from "@material-ui/core"
 import Grid from "@material-ui/core/Grid"
 import "./index.css"
 import ExcelIcon from "../../redux/uils/icons/iconfinder_excel_272697.png"
+import excelfile from './excelDocs/new.xlsx'
 
 export default function ListDocs({ docsList }) {
   return (
@@ -12,9 +13,8 @@ export default function ListDocs({ docsList }) {
       </Typography>
 
       <Grid container direction="row" justify="flex-start" alignItems="center">
-        {(docsList || []).map((excel, y) => (
-          <div key={y} className="card-file">
-            <div className="card-header">{excel.id}</div>
+          <div className="card-file">
+            <div className="card-header">New</div>
             <CardMedia
               className="icon-card"
               type="file"
@@ -22,12 +22,11 @@ export default function ListDocs({ docsList }) {
               // onChange={{ pathname: `/docs/${excel.id}`, state: { excel }}}
             />
             <h5 className="card-footer">
-              <a href={`${excel.excel_file}`} download>
+              <a href={excelfile} download>
                 Скачать
               </a>
             </h5>
           </div>
-        ))}
       </Grid>
     </div>
   )

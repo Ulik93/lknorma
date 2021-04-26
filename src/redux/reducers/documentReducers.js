@@ -4,6 +4,7 @@ const initialState = {
   getDocsList: [],
   getTable: [],
   getTemplateExcel: [],
+  getTemplateExcelVlad:[],
   getDocsListState: {
     success: false,
     loading: false,
@@ -142,6 +143,35 @@ const reducer = (state = initialState, action) => {
           failed: false,
         },
       }
+
+      case constants.GET_TEMPLATE_EXCEL_FILE_SUCCESS_VLAD:
+        return {
+          ...state,
+          getTemplateExcelVlad: action.payload,
+          getTemplateExcelState: {
+            success: true,
+            loading: false,
+            failed: false,
+          },
+        }
+      case constants.GET_TEMPLATE_EXCEL_FILE_FAILED_VLAD:
+        return {
+          ...state,
+          getTemplateExcelState: {
+            success: false,
+            loading: false,
+            failed: true,
+          }, 
+        }
+      case constants.GET_TEMPLATE_EXCEL_FILE_LOADING_VLAD:
+        return {
+          ...state,
+          getTemplateExcelState: {
+            success: false,
+            loading: true,
+            failed: false,
+          },
+        }
 
     default:
       return state

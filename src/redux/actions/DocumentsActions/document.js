@@ -21,7 +21,7 @@ export const getExcelFileTable = (id) => (dispatch) => {
   const baseURL = `${point}/api/reports/reports-list-filter/?user=&excel_file=${id}`
   const token = localStorage.getItem("token")
   axios
-    .get(baseURL, { headers: { Authorization: `Token ${token}` } })
+    .get(baseURL, {id: 4})
     .then((result) => {
       dispatch({ type: constants.GET_TABLE_SUCCESS, payload: result.data })
     })
@@ -30,13 +30,12 @@ export const getExcelFileTable = (id) => (dispatch) => {
     })
 }
 
-// DELETE
 export const deleteExcelFileTable = (id) => (dispatch) => {
   dispatch({ type: constants.GET_TABLE_LOADING })
   const baseURL = `${point}/api/reports/excel/${id}/`
   const token = localStorage.getItem("token")
   axios
-    .delete(baseURL, { headers: { Authorization: `Token ${token}` } })
+    .delete(baseURL, {data: {id: id}, headers: { Authorization: `Token ${token}` } })
     .then((result) => {
       dispatch({ type: constants.UPLOAD_FILE_SUCCESS, payload: result })
     })
@@ -45,21 +44,15 @@ export const deleteExcelFileTable = (id) => (dispatch) => {
     })
 }
 
-// SEND
 export const sendExcelFileTable = (id, is_order) => (dispatch) => {
-  dispatch({ type: constants.UPLOAD_FILE_LOADING })
-  const baseURL = `${point}/api/vlad/send/`
-  const token = localStorage.getItem("token")
+  dispatch({ type: constants.GET_TABLE_LOADING })
+  const baseURL = `${point}/api/reports/send/`
   axios
-    .post(
-      baseURL,
-      { is_order, id },
-      { headers: { Authorization: `Token ${token}` } }
-    )
+    .post(baseURL, {is_order, id})
     .then((result) => {
       dispatch({ type: constants.UPLOAD_FILE_SUCCESS, payload: result })
     })
-    .catch((error) => {
+    .catch((error) => { 
       dispatch({ type: constants.GET_TABLE_FAILED, error: error })
     })
 }
@@ -68,10 +61,10 @@ export const uploadExcelFile = (file) => (dispatch) => {
   dispatch({ type: constants.UPLOAD_FILE_LOADING })
   const baseURL = `${point}/api/reports/excel/`
   const token = localStorage.getItem("token")
-  let formData = new FormData()
-  formData.append("excel_file", file)
+  let data = new FormData()
+  data.append("excel_file", file)
   axios
-    .post(baseURL, formData, { headers: { Authorization: `Token ${token}` } })
+    .post(baseURL, data, { headers: { Authorization: `Token ${token}` } })
     .then((result) => {
       dispatch({ type: constants.UPLOAD_FILE_SUCCESS, payload: result })
     })
@@ -94,5 +87,22 @@ export const getTemplateExcelFile = () => (dispatch) => {
     })
     .catch((error) => {
       dispatch({ type: constants.GET_TEMPLATE_EXCEL_FILE_FAILED, error: error })
+    })
+}
+
+export const getTemplateExcelFileVlad = () => (dispatch) => {
+  dispatch({ type: constants.GET_TEMPLATE_EXCEL_FILE_LOADING_VLAD })
+  const baseURL = `${point}/api/reports/room/`
+  const token = localStorage.getItem("token")
+  axios
+    .get(baseURL, { headers: { Authorization: `Token ${token}` } })
+    .then((result) => {
+      dispatch({
+        type: constants.GET_TEMPLATE_EXCEL_FILE_SUCCESS_VLAD,
+        payload: result.data,
+      })
+    })
+    .catch((error) => {
+      dispatch({ type: constants.GET_TEMPLATE_EXCEL_FILE_FAILED_VLAD, error: error })
     })
 }

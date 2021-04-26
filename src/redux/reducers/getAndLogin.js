@@ -2,6 +2,7 @@ import constants from '../constants'
 
 const initialState = {
   userData: {},
+  is_vlad: false,
   get: {
     success: false,
     loading: false,
@@ -46,6 +47,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         userData: action.payload,
+        vlad: action.payload.is_vlad,
         get: {
           success: true,
           loading: false,
@@ -102,6 +104,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         token: action.payload,
+        is_vlad: action.payload,
         login: {
           success: true,
           loading: false,
@@ -117,6 +120,8 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         userData: {},
+        is_vlad: false,
+        vlad: false,
         get: {
           success: false,
           loading: false,
