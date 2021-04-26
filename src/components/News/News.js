@@ -16,7 +16,7 @@ const News = () => {
   }
   return (
     <div className="news_block">
-      <h4 className="news_block_h">Новости 123123</h4>
+      <h4 className="news_block_h">Новости</h4>
       <div className="news_block_row">
         {products.slice(pagination.start, pagination.end).map((posts) => (
           <NavLink
