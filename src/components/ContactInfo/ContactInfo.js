@@ -21,7 +21,7 @@ export default function ContactInfo({ userData }) {
       <div className="contactInfo_item">
         {/* <div className='contactInfo_item_text'>Дата рождения:</div> */}
         <div className="contactInfo_item_text">
-          <i class="fas fa-calendar-alt"></i>
+          <i className="fas fa-calendar-alt"></i>
           {userData.birthday}
         </div>
       </div>

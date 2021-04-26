@@ -33,6 +33,11 @@ import Calendar from "../Calendar/Calendar"
 import NewsItem from "../News/NewsItem"
 import TableDoc from "../Docs/TableDoc"
 import UpdateProfile from "../Profile/UpdateProfile"
+import Alcohol from "../products/alcohol/Alcohol"
+import Clothes from "../products/clothes/Clothes"
+import Shoes from "../products/shoes/Shoes"
+import Tobacco from "../products/tobacco/Tobacco"
+import Perfume from "../products/perfume/Perfume"
 
 const drawerWidth = 240
 
@@ -202,7 +207,7 @@ export default function MiniDrawer() {
                   },
                   {
                     text: "Обувь",
-                    path: "/main/footwear",
+                    path: "/main/shoes",
                     icon: "fas fa-shoe-prints",
                   },
                   {
@@ -217,7 +222,7 @@ export default function MiniDrawer() {
                   },
                   {
                     text: "Парфюм",
-                    path: "/main/porfume",
+                    path: "/main/perfume",
                     icon: "fas fa-spray-can",
                   },
                 ].map((data, index) => (
@@ -355,6 +360,11 @@ export default function MiniDrawer() {
             <Switch>
               <Route path="/main" component={Profile} exact />
               <Route path="/main/docs" component={Docs} />
+              <Route path="/main/drinks" component={Alcohol}/>
+              <Route path="/main/clothes" component={Clothes}/>
+              <Route path="/main/shoes" component={Shoes}/>
+              <Route path="/main/tobacco" component={Tobacco}/>
+              <Route path="/main/perfume" component={Perfume}/>
               <Route path="/main/todos" component={Todos} />
               <Route path="/main/calendar" component={Calendar} />
               {!successUpdate && (
