@@ -31,7 +31,7 @@ export default function UpdateProfile() {
       data.last_name.length > 3 &&
       data.phone.length > 9 &&
       data.birthday.length > 5 &&
-      data.address.length > 6
+      data.address.length > 3
     ) {
       setValid(true)
     } else {
