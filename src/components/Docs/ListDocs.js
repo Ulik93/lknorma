@@ -5,10 +5,10 @@ import "./index.css"
 import ExcelIcon from "../../redux/uils/icons/iconfinder_excel_272697.png"
 
 export default function ListDocs(props) {
-  const docsList = [{name: "Documents", file: props.data.excel}, 
-                    {name: "Documents", file: props.data.excel},
-                    {name: "Documents", file: props.data.excel},
-                    {name: "Documents", file: props.data.excel},]
+  const docsList = [{name: "1", file: props.data.excel}, 
+                    {name: "2", file: props.data.excel},
+                    {name: "3", file: props.data.excel},
+                    {name: "4", file: props.data.excel},]
   return (
     <div className="container">
       <Typography variant="h5" component="h6">
