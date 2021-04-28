@@ -1,17 +1,21 @@
-import point from '../../point.js'
-import constants from '../constants'
-import axios from 'axios'
-import { createNotification } from 'react-redux-notify'
-import { updateProfileErrorNotification, updateProfileSuccessNotification } from './notification'
-import NotificationManager from 'react-notifications/lib/NotificationManager'
+import point from "../../point.js"
+import constants from "../constants"
+import axios from "axios"
+import { createNotification } from "react-redux-notify"
+import {
+  updateProfileErrorNotification,
+  updateProfileSuccessNotification,
+} from "./notification"
+import NotificationManager from "react-notifications/lib/NotificationManager"
 
-const errorHandler = (error) => (error.response ? error.response.data : error.message)
+const errorHandler = (error) =>
+  error.response ? error.response.data : error.message
 
 export const auth = (data) => (dispatch) => {
   const url = `${point}/api/auth/users/registration/`
   dispatch({ type: constants.AUTH_LOADING })
   axios
-    .post(url, data, { headers: { 'Content-Type': 'application/json' } })
+    .post(url, data, { headers: { "Content-Type": "application/json" } })
     .then(({ data }) => {
       if (data.errors) dispatch({ type: constants.AUTH_FAILED })
       else dispatch({ type: constants.AUTH_SUCCESS })
@@ -28,16 +32,20 @@ export const login = (data) => (dispatch) => {
   axios
     .post(url, data)
     .then(({ data }) => {
-      window.localStorage.setItem('token', data.token)
-      typeof data.token == 'undefined'
+      window.localStorage.setItem("token", data.token)
+      typeof data.token == "undefined"
         ? dispatch({ type: constants.LOGIN_FAILED })
-        : dispatch({ type: constants.LOGIN_SUCCESS, payload: data.token, payload: data.is_vlad })
+        : dispatch({
+            type: constants.LOGIN_SUCCESS,
+            payload: data.token,
+            payload: data.is_vlad,
+          })
     })
     .catch((err) => {
       dispatch({ type: constants.LOGIN_FAILED })
     })
 }
- 
+
 export const getData = (token) => (dispatch) => {
   const url = `${point}/api/auth/users/me/`
   dispatch({ type: constants.GET_DATA_LOADING })
@@ -51,13 +59,16 @@ export const getData = (token) => (dispatch) => {
       dispatch({ type: constants.GET_DATA_SUCCESS, payload: data })
     })
     .catch((error) => {
-      dispatch({ type: constants.GET_DATA_FAILED, payload: errorHandler(error) })
+      dispatch({
+        type: constants.GET_DATA_FAILED,
+        payload: errorHandler(error),
+      })
     })
 }
 
 export const logout = () => (dispatch) => {
   dispatch({ type: constants.LOGOUT })
-  window.localStorage.removeItem('token')
+  window.localStorage.removeItem("token")
 }
 
 export const resetPassword = (data) => (dispatch) => {
@@ -68,8 +79,8 @@ export const resetPassword = (data) => (dispatch) => {
     .then(({ data }) => {
       if (data[0].token || data[0].uidb64) {
         dispatch({ type: constants.RESET_SUCCESS })
-        window.localStorage.setItem('resetPasswordToken', data[0].token)
-        window.localStorage.setItem('resetPasswordUidb', data[0].uidb64)
+        window.localStorage.setItem("resetPasswordToken", data[0].token)
+        window.localStorage.setItem("resetPasswordUidb", data[0].uidb64)
       } else {
         dispatch({ type: constants.RESET_FAILED })
       }
@@ -86,7 +97,7 @@ export const newPassword = (data) => (dispatch) => {
     .patch(url, data)
     .then(({ data }) => {
       dispatch({ type: constants.NEWPASSWORD_SUCCESS })
-      document.location.href = '/login'
+      document.location.href = "/login"
     })
     .catch((err) => {
       dispatch({ type: constants.NEWPASSWORD_FAILED })
@@ -95,7 +106,7 @@ export const newPassword = (data) => (dispatch) => {
 
 export const updateProfile = (data) => (dispatch) => {
   dispatch({ type: constants.UPDATE_PROFILE_LOADING })
-  const token = localStorage.getItem('token')
+  const token = localStorage.getItem("token")
   const url = `${point}/api/auth/users/update/`
   axios
     .post(url, data, { headers: { Authorization: `Token ${token}` } })
@@ -120,10 +131,10 @@ export const updateProfile = (data) => (dispatch) => {
 export const activateAccount = (token) => (dispatch) => {
   dispatch({ type: constants.ACTIVATE_ACCOUNT })
   return fetch(`${point}/api/auth/users/email-verify/`, {
-    method: 'GET',
+    method: "GET",
     headers: {
       Authorization: `${token}`,
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
     },
   })
     .then((response) => {
@@ -131,7 +142,7 @@ export const activateAccount = (token) => (dispatch) => {
         return response.json()
       }
 
-      throw new Error('Error')
+      throw new Error("Error")
     })
     .then((data) => {
       dispatch({ type: constants.ACTIVATE_ACCOUNT_SUCCESS, payload: data })

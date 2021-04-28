@@ -1,4 +1,4 @@
-const point = "http://185.29.184.52:3000"
+const point = "https://b36dc94e2d12.ngrok.io"
 
 export default point
 // api/vlad/exel-vlad/
