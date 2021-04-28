@@ -38,7 +38,10 @@ export default function MyDocuments({ docsList }) {
                 className="card-footer"
                 onClick={() => handleGetExcelFile(excel.id)}
               >
+                <div className="card-footer-downloader">
                 Открыть
+                </div>
+              
               </h5>
             </NavLink>
 
@@ -46,14 +49,18 @@ export default function MyDocuments({ docsList }) {
               className="card-footer"
               onClick={() => handleDeleteExcelFile(excel.id)}
             >
-              Delete
+               <div className="card-footer-downloader">
+                Удалить
+                </div>
             </button>
 
             <button
               className="card-footer"
               onClick={() => handleSendExcelFile(excel.id, true)}
             >
-              Send
+               <div className="card-footer-downloader">
+                Отправить
+                </div>
             </button>
           </div>
         ))}

@@ -13,7 +13,7 @@
   height: 190px;
   display: flex;
   flex-direction: column;
-  border: 1px solid #ef9a9a;
+  border: 1px solid #2e7d32;
   border-radius: 4px;
   overflow: hidden;
   margin: 10px;
@@ -24,24 +24,46 @@
   text-align: center;
   font-size: 10px;
   font-weight: 600;
-  border-bottom: 1px solid #ef9a9a;
-  padding: 5px 10px;
+  padding: 15px 20px;
   background: white;
 }
 
 .card-footer {
-  color: black;
   text-align: center;
   font-size: 12px;
   font-weight: 600;
-  border-top: 1px solid #ef9a9a;
   padding: 5px 10px;
   background: white;
   user-select: none;
 }
 
+.card-footer-downloader {
+  width: 137px;
+  height: 27px;
+  border: 1px solid #2e7d32;
+  color: #2e7d32;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.card-footer-downloader a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 137px;
+  height: 27px;
+}
+
+.card-footer-downloader a:hover {
+  transition: all 0.4s;
+  background-color: #2e7d32;
+  color: white;
+}
+
 .icon-card {
-  width: 95%;
+  width: 60%;
   height: 99%;
   margin: 0 auto;
 }
@@ -68,6 +90,7 @@ thead tr:nth-child(2) {
   /*border: 1px solid #d0d7e5;*/
   /*border-width: 0px 1px 1px 0px;*/
 }
+
 thead tr:nth-child(3) {
   /*display: none;*/
   min-width: 200px;
@@ -75,6 +98,7 @@ thead tr:nth-child(3) {
   border: 1px solid #d0d7e5;
   border-width: 0px 1px 1px 0px;
 }
+
 thead tr:nth-child(4) {
   /*display: none;*/
   background: none;
@@ -86,14 +110,13 @@ thead tr:nth-child(4) {
 
 .input-component-container {
   text-align: right;
-  padding-right: 3%;
-  padding-top: 20px;
+  padding: 20px 3% 10px;
 }
 
 .input-button {
   width: 350px;
   overflow: hidden;
-  padding-right: 10px;
+  background-color: #2e7d32;
 }
 
 .contained-button-file {
@@ -106,4 +129,34 @@ thead tr:nth-child(4) {
   margin-top: 2rem;
   text-align: center;
   font-family: sans-serif;
+}
+
+.input-component-container button {
+  background-color: #2e7d32;
+  margin-left: 2px;
+  color: #fff;
+}
+
+.input-component-container img {
+  width: 20px;
+  height: 20px;
+}
+
+.input-button {
+  background-color: #abb1ab;
+  display: flex;
+  justify-content: space-around;
+}
+
+.input-component-container-input {
+  background-color: #2e7d32;
+  padding: 10px 20px 20px 10px;
+}
+
+.MuiTypography-h5 {
+  color: #2e7d32;
+  text-transform: uppercase;
+  font-weight: 900;
+  height: 50px;
+  font-family: 'Roboto', sans-serif;
 }
