@@ -1,7 +1,7 @@
-import React from "react"
-import "./index.css"
-import excelFiles from "./excelfiles"
-import { useSelector } from "react-redux"
+import React from "react";
+import "./index.css";
+import excelFiles from "./excelfiles";
+import { useSelector } from "react-redux";
 
 export default function TableDoc() {
   // article_value(pin):"nan"
@@ -13,7 +13,7 @@ export default function TableDoc() {
   // composition(pin):"nan"
   // standard_no(pin):"nan"
   // status(pin):"nan"
-  const docsData = useSelector((state) => state.docs.getTable)
+  const docsData = useSelector((state) => state.docs.getTable);
   return (
     <div>
       <table className="table table-docs">
@@ -71,11 +71,13 @@ export default function TableDoc() {
               <td className="table-tr">
                 {data.status === "nan" ? "" : data.status}
               </td>
-              <td className="table-tr"></td>
+              <td className="table-tr">
+                {data.status === "nan" ? "" : data.result_treatment_data}
+              </td>
             </tr>
           ))}
         </tbody>
       </table>
     </div>
-  )
+  );
 }
