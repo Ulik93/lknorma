@@ -31,6 +31,7 @@ export default function TableDoc() {
         <tbody>
           {(docsData || []).map((data) => (
             <tr key={data.id}>
+
               {console.log(data.tnved === "nan")}
               <td className="table-tr">
                 {data.tnved === "nan" ? "" : data.tnved}

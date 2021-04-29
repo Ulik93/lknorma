@@ -21,6 +21,7 @@ export const getExcelFileTable = (id) => (dispatch) => {
   const baseURL = `${point}/api/reports/reports-list-filter/?user=&excel_file=${id}`
   const token = localStorage.getItem("token")
   axios
+    .get(baseURL, {id: id})
     .get(baseURL)
     .then((result) => {
       dispatch({ type: constants.GET_TABLE_SUCCESS, payload: result.data })
@@ -64,7 +65,10 @@ export const sendExcelFileTable = (id, is_order) => (dispatch) => {
 export const getFileInfo = (user_id) => (dispatch) => {
   dispatch({ type: constants.GET_TABLE_LOADING })
   const baseURL = `${point}/api/reports/send`
-  axios.get(baseURL, { params: { user_id } })
+  axios.get(baseURL, { params: { user_id } }).then((data) => {
+    console.log(data.data)
+    dispatch({ type: constants.GET_EXCEL_FILE_INFO, payload: data.data })
+  })
 }
 
 export const uploadExcelFile = (file) => (dispatch) => {

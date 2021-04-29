@@ -8,7 +8,7 @@ import excelfile from '../../Docs/excelDocs/new.xlsx'
 
 export default function Tobacco() {
   const docsList = useSelector((state) => state.docs.getDocsList)
-  const data = {template: "Шаблоны для табака", excel: excelfile}
+  const data = {template: "Шаблоны для табака", excel: excelfile, fileName: "Шаблон для табака"}
   return (
     <div className='table-container'>
       <InputFile />

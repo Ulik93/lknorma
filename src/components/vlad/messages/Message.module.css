@@ -1,89 +1,70 @@
-
-.card_size{
-    width: 120px;
-    height: 120px;
-}
-  
-.icon-card {
-    width: 95%;
-    height: 99%;
-    margin: 0 auto;
-}
-  
-.table-th {
-    min-width: 200px;
-    padding: 0px 4px 0px 2px;
-    background-color: rgb(231, 231, 231);
-    border: 1px solid #d0d7e5;
-    border-width: 0px 1px 1px 0px;
-}
-  
-.table-tr {
-    min-width: 200px;
-    padding: 0px 4px 0px 2px;
-    border: 1px solid #d0d7e5;
-    border-width: 0px 1px 1px 0px;
-}
-  
-thead tr:nth-child(2) {
-    background: none;
-    /*min-width: 200px;*/
-    /*padding: 0px 4px 0px 2px;*/
-    /*border: 1px solid #d0d7e5;*/
-    /*border-width: 0px 1px 1px 0px;*/
-}
-thead tr:nth-child(3) {
-    /*display: none;*/
-    min-width: 200px;
-    padding: 0px 4px 0px 2px;
-    border: 1px solid #d0d7e5;
-    border-width: 0px 1px 1px 0px;
-}
-.btn{
-    margin: 2rem;
-    background-color: rgb(228, 40, 212);
-    border-radius: 5px;
+.container {
+  width: 1175px;
+  margin: 0 auto;
+  min-height: 200px;
 }
 
-.flex{
-    display: flex;
-    justify-content: space-around;
+.card_size {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 1.5rem;
 }
 
-.flex1{
-    width: 40%;
-    margin: 2rem;
+.flex {
+  display: flex;
 }
 
-thead tr:nth-child(4) {
-    /*display: none;*/
-    background: none;
-    min-width: 200px;
-    padding: 0px 4px 0px 2px;
-    border: 1px solid #d0d7e5;
-    border-width: 0px 1px 1px 0px;
+.flex1 {
+  margin: 2rem 0;
 }
-  
-.input-component-container {
-    text-align: right;
-    padding-right: 3%;
-    padding-top: 20px;
+
+/* NEW */
+.info {
+  margin-left: 2rem;
 }
-  
-.input-button {
-    width: 350px;
-    overflow: hidden;
-    padding-right: 10px;
+
+.file_name {
+  color: rgb(90, 89, 89);
+  margin-right: 10px;
 }
-  
-.contained-button-file {
-    min-width: 15%;
-    height: 32px;
+
+.btn {
+  border: 1px solid rgb(163, 163, 163);
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 375;
+  background-color: #fff;
+  transition: 0.5s;
 }
-  
-.table-docs {
-    overflow-y: hidden;
-    margin-top: 2rem;
-    text-align: center;
-    font-family: sans-serif;
+.btn:hover {
+  background-color: rgb(240, 240, 240);
+}
+
+.btn_info {
+  background-color: #246fc0;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 3px;
+  border: none;
+  transition: 0.5s;
+}
+.btn_info:hover {
+  background-color: #0f457e;
+}
+
+.card_footer {
+  text-align: center;
+  font-size: 12px;
+  background: white;
+  user-select: none;
+  width: 100%;
+  border: 1px solid #2e7d32;
+  color: black;
+  padding: 0.5rem;
+  margin-top: -1px;
+  font-weight: 400;
+}
+.card_footer a {
+  color: black;
 }

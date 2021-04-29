@@ -1,8 +1,8 @@
-import React from "react";
-import { CardMedia, Typography } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-import "./index.css";
-import ExcelIcon from "./img/excel.svg";
+import React from "react"
+import { CardMedia, Typography } from "@material-ui/core"
+import Grid from "@material-ui/core/Grid"
+import "./index.css"
+import ExcelIcon from "../../redux/uils/icons/excel.svg"
 
 export default function ListDocs(props) {
   const docsList = [
@@ -10,7 +10,7 @@ export default function ListDocs(props) {
     { name: "2", file: props.data.excel },
     { name: "3", file: props.data.excel },
     { name: "4", file: props.data.excel },
-  ];
+  ]
   return (
     <div className="container">
       <Typography variant="h5" component="h6">
@@ -35,9 +35,9 @@ export default function ListDocs(props) {
                 </div>
               </h5>
             </div>
-          );
+          )
         })}
       </Grid>
     </div>
-  );
+  )
 }
