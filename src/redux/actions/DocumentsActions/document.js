@@ -22,6 +22,7 @@ export const getExcelFileTable = (id) => (dispatch) => {
   const token = localStorage.getItem("token")
   axios
     .get(baseURL, {id: id})
+    .get(baseURL)
     .then((result) => {
       dispatch({ type: constants.GET_TABLE_SUCCESS, payload: result.data })
     })
@@ -35,7 +36,10 @@ export const deleteExcelFileTable = (id) => (dispatch) => {
   const baseURL = `${point}/api/reports/excel/${id}/`
   const token = localStorage.getItem("token")
   axios
-    .delete(baseURL, {data: {id: id}, headers: { Authorization: `Token ${token}` } })
+    .delete(baseURL, {
+      data: { id: id },
+      headers: { Authorization: `Token ${token}` },
+    })
     .then((result) => {
       dispatch({ type: constants.UPLOAD_FILE_SUCCESS, payload: result })
     })
@@ -48,13 +52,20 @@ export const sendExcelFileTable = (id, is_order) => (dispatch) => {
   dispatch({ type: constants.GET_TABLE_LOADING })
   const baseURL = `${point}/api/reports/send/`
   axios
-    .post(baseURL, {is_order, id})
+    .post(baseURL, { is_order, id })
     .then((result) => {
       dispatch({ type: constants.UPLOAD_FILE_SUCCESS, payload: result })
     })
-    .catch((error) => { 
+    .catch((error) => {
       dispatch({ type: constants.GET_TABLE_FAILED, error: error })
     })
+}
+
+// GET_INFO
+export const getFileInfo = (user_id) => (dispatch) => {
+  dispatch({ type: constants.GET_TABLE_LOADING })
+  const baseURL = `${point}/api/reports/send`
+  axios.get(baseURL, { params: { user_id } })
 }
 
 export const uploadExcelFile = (file) => (dispatch) => {
@@ -103,6 +114,9 @@ export const getTemplateExcelFileVlad = () => (dispatch) => {
       })
     })
     .catch((error) => {
-      dispatch({ type: constants.GET_TEMPLATE_EXCEL_FILE_FAILED_VLAD, error: error })
+      dispatch({
+        type: constants.GET_TEMPLATE_EXCEL_FILE_FAILED_VLAD,
+        error: error,
+      })
     })
 }

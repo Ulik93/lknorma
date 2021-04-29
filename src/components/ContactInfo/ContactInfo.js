@@ -29,7 +29,7 @@ export default function ContactInfo({ userData }) {
         {/* <div className='contactInfo_item_text'>Город:</div> */}
         <div className="contactInfo_item_text">
           <i className="fas fa-map-marker-alt"></i>
-          г. {userData.city}
+          г. {userData.address}
         </div>
       </div>
     </div>
