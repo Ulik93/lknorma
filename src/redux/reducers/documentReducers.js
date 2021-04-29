@@ -2,7 +2,7 @@ import constants from "../constants"
 
 const initialState = {
   getDocsList: [],
-  getTable: [],
+  getTable: null,
   getTemplateExcel: [],
   getTemplateExcelVlad:[],
   getDocsListState: {

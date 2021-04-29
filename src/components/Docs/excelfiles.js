@@ -1,9 +1,4 @@
 import ExcelIcon from "../../redux/uils/icons/iconfinder_excel_272697.png"
-import Excel6201 from "../../redux/uils/excelfiles/IMPORT_TNVED_6201.xlsx"
-import Excel6202 from "../../redux/uils/excelfiles/IMPORT_TNVED_6202.xlsx"
-import Excel6106 from "../../redux/uils/excelfiles/IMPORT_TNVED_6106.xlsx"
-import Excel6302 from "../../redux/uils/excelfiles/IMPORT_TNVED_6302.xlsx"
-
 
 export default [
     ["Код ТНВЭД",

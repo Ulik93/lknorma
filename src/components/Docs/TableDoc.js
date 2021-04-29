@@ -22,19 +22,19 @@ export default function TableDoc() {
         <tbody>
           {(docsData || []).map((data) => (
             <tr key={data.id}>
-              <td className="table-tr">{data.tnved || ""}</td>
-              <td className="table-tr">{data.full_product_name || " "}</td>
-              <td className="table-tr">{data.trademark || " "}</td>
+              <td className="table-tr">{data.tnved === "nan"? '' : data.tnved}</td>
+              <td className="table-tr">{data.full_product_name === "nan"? '' : data.full_product_name}</td>
+              <td className="table-tr">{data.trademark === "nan"? '' : DataTransfer.trademark}</td>
               <td className="table-tr">Zenden</td>
               <td className="table-tr">Adidas china</td>
-              <td className="table-tr">{data.product_type || " "}</td>
-              <td className="table-tr">{data.color || " "}</td>
-              <td className="table-tr">{data.target_gender || " "}</td>
+              <td className="table-tr">{data.product_type === "nan"? '' : data.product_type}</td>
+              <td className="table-tr">{data.color === "nan"? '' : data.color}</td>
+              <td className="table-tr">{data.target_gender === "nan"? '' : data.target_gender}</td>
               <td className="table-tr">39</td>
               <td className="table-tr">50</td>
-              <td className="table-tr">{data.composition || " "}</td>
-              <td className="table-tr">{data.standard_no || " "}</td>
-              <td className="table-tr">{data.status || " "}</td>
+              <td className="table-tr">{data.composition === "nan"? '' : data.composition}</td>
+              <td className="table-tr">{data.standard_no === "nan"? '' : data.standard_no}</td>
+              <td className="table-tr">{data.status === "nan"? '' : data.status}</td>
               <td className="table-tr">da</td>
             </tr>
           ))}
