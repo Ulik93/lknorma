@@ -1,7 +1,7 @@
 import React from "react"
 import { CardMedia } from "@material-ui/core"
-import ExcelIcon from "../../../redux/uils/icons/iconfinder_excel_272697.png"
-import x from "./Message.module.css"
+import ExcelIcon from "../../../redux/uils/icons/excel.svg"
+import style from "./Message.module.css"
 import {
   getExcelFileTable,
   sendExcelFileTable,
@@ -10,6 +10,7 @@ import {
 import { useDispatch } from "react-redux"
 import { logout } from "../../../redux/actions/getAndLogin"
 import { NavLink } from "react-router-dom"
+import Modal from "../Modal"
 
 export default function Message({ docsList }) {
   let dispatch = useDispatch()
@@ -25,46 +26,53 @@ export default function Message({ docsList }) {
   }
 
   return (
-    <div>
-      <button className={x.btn}>
-        <div onClick={() => dispatch(logout())} className="logout">
-          <i className="fas fa-door-open" /> Выйти
-        </div>
+    <div className={style.container}>
+      <Modal />
+      <button className={style.btn}>
+        <div onClick={() => dispatch(logout())}>Выйти</div>
       </button>
 
-      <div className={x.flex}>
-        <div className={x.flex1}>FILE</div>
-        <div className={x.flex1}>NAME</div>
-      </div>
-
       {(docsList || []).map((excel) => (
-        <div className={x.flex} key={excel.id}>
-          <div className={x.flex1}>
-            <CardMedia className={x.card_size} type="file" image={ExcelIcon} />
+        <div className={style.flex} key={excel.id}>
+          <div className={style.flex1}>
+            <CardMedia
+              className={style.card_size}
+              type="file"
+              image={ExcelIcon}
+            />
 
             <NavLink to={`/docs/my_doc/${excel.id}`}>
-              <button onClick={() => handleGetTable(excel.id)}>open</button>
+              <button
+                className={style.card_footer}
+                onClick={() => handleGetTable(excel.id)}
+              >
+                open
+              </button>
             </NavLink>
             <button
-              className="card-footer"
+              className={style.card_footer}
               onClick={() => handleSendExcelFile(excel.id, false)}
             >
               Delete
             </button>
             <br />
-            <button>
+            <button className={style.card_footer}>
               <a href={`${excel.excel_file}`} download>
                 Скачать
               </a>
             </button>
           </div>
-          <div className={x.flex1}>
-            <div>{excel.file_name}</div>
+          <div className={`${style.flex1} ${style.info}`}>
+            <div>
+              <span className={style.file_name}>Имя файла: </span>{" "}
+              {excel.file_name}
+            </div>
+            <br />
             <button
               onClick={() => handleGetInfo(excel.user)}
-              className="btn btn-info"
+              className={style.btn_info}
             >
-              info
+              информация
             </button>
           </div>
         </div>

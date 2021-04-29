@@ -4,7 +4,8 @@ const initialState = {
   getDocsList: [],
   getTable: [],
   getTemplateExcel: [],
-  getTemplateExcelVlad:[],
+  getTemplateExcelVlad: [],
+  showExcelInfoModalVlad: { content: {}, show: false },
   getDocsListState: {
     success: false,
     loading: false,
@@ -144,34 +145,51 @@ const reducer = (state = initialState, action) => {
         },
       }
 
-      case constants.GET_TEMPLATE_EXCEL_FILE_SUCCESS_VLAD:
-        return {
-          ...state,
-          getTemplateExcelVlad: action.payload,
-          getTemplateExcelState: {
-            success: true,
-            loading: false,
-            failed: false,
-          },
-        }
-      case constants.GET_TEMPLATE_EXCEL_FILE_FAILED_VLAD:
-        return {
-          ...state,
-          getTemplateExcelState: {
-            success: false,
-            loading: false,
-            failed: true,
-          }, 
-        }
-      case constants.GET_TEMPLATE_EXCEL_FILE_LOADING_VLAD:
-        return {
-          ...state,
-          getTemplateExcelState: {
-            success: false,
-            loading: true,
-            failed: false,
-          },
-        }
+    case constants.GET_TEMPLATE_EXCEL_FILE_SUCCESS_VLAD:
+      return {
+        ...state,
+        getTemplateExcelVlad: action.payload,
+        getTemplateExcelState: {
+          success: true,
+          loading: false,
+          failed: false,
+        },
+      }
+    case constants.GET_TEMPLATE_EXCEL_FILE_FAILED_VLAD:
+      return {
+        ...state,
+        getTemplateExcelState: {
+          success: false,
+          loading: false,
+          failed: true,
+        },
+      }
+    case constants.GET_TEMPLATE_EXCEL_FILE_LOADING_VLAD:
+      return {
+        ...state,
+        getTemplateExcelState: {
+          success: false,
+          loading: true,
+          failed: false,
+        },
+      }
+    case constants.GET_EXCEL_FILE_INFO:
+      return {
+        ...state,
+        showExcelInfoModalVlad: {
+          ...state.showExcelInfoModalVlad,
+          show: true,
+          content: action.payload,
+        },
+      }
+    case constants.CLOSE_MODAL:
+      return {
+        ...state,
+        showExcelInfoModalVlad: {
+          show: false,
+          content: { ...state.showExcelInfoModalVlad.content },
+        },
+      }
 
     default:
       return state

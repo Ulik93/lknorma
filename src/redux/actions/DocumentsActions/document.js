@@ -64,7 +64,10 @@ export const sendExcelFileTable = (id, is_order) => (dispatch) => {
 export const getFileInfo = (user_id) => (dispatch) => {
   dispatch({ type: constants.GET_TABLE_LOADING })
   const baseURL = `${point}/api/reports/send`
-  axios.get(baseURL, { params: { user_id } })
+  axios.get(baseURL, { params: { user_id } }).then((data) => {
+    console.log(data.data)
+    dispatch({ type: constants.GET_EXCEL_FILE_INFO, payload: data.data })
+  })
 }
 
 export const uploadExcelFile = (file) => (dispatch) => {
