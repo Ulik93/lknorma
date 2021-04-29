@@ -21,6 +21,7 @@ export const getExcelFileTable = (id) => (dispatch) => {
   const baseURL = `${point}/api/reports/reports-list-filter/?user=&excel_file=${id}`
   const token = localStorage.getItem("token")
   axios
+    .get(baseURL, {id: id})
     .get(baseURL)
     .then((result) => {
       dispatch({ type: constants.GET_TABLE_SUCCESS, payload: result.data })

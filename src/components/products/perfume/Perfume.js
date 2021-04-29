@@ -8,7 +8,7 @@ import excelfile from '../../Docs/excelDocs/new.xlsx'
 
 export default function Perfume() {
   const docsList = useSelector((state) => state.docs.getDocsList)
-  const data = {template: "Шаблоны для парфюма", excel: excelfile}
+  const data = {template: "Шаблоны для парфюма", excel: excelfile, fileName: "Шаблон для парфюма"}
   return (
     <div className='table-container'>
       <InputFile />
