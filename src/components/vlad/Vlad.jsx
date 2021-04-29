@@ -16,7 +16,6 @@ export default function Vlad() {
                 <Switch>
                     <Route path="/vlad">
                         <Header userData={userData}/>
-                        <ContactInfo userData={userData} />
                         <Message docsList={docsList}/>
                         <Footer/>
                     </Route>

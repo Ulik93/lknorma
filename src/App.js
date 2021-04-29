@@ -38,7 +38,6 @@ const App = () => {
     dispatch(getTemplateExcelFile())
     dispatch(getTemplateExcelFileVlad())
   }, [getDocsList, uploadExcelFile, uploadState])
-
   return (
     <BrowserRouter>
       <div className='app'>
@@ -47,21 +46,16 @@ const App = () => {
           <Route path='/reset' component={ResetPassword} exact />
           <Route path='/newpassword' component={NewPassword} exact />
           <Route path='/auth/activate/:token' component={Activate} />
-
           {((vlad || is_vlad) && <Route path='/vlad' component={Vlad} exact />)}
           {((vlad || is_vlad) && <Redirect to = '/vlad' />)}
-
           {((loginSuccess || getSuccess) && vlad == false) && <Route path='/main' component={Sidebar} />}
           {((loginSuccess || getSuccess) && vlad == false) && <Redirect to='/main' />}
           {!loginSuccess && !vlad && <Route path='/login' component={Login} />}
           {!loginSuccess && !vlad && <Redirect to='/login' />}
-          
         </Switch>
         {getDataLoading && <Loading />}
       </div>
     </BrowserRouter>
   )
 }
-
 export default App
-
