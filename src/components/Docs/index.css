@@ -82,6 +82,12 @@
   margin: 0 auto;
 }
 
+.icon-card-my  {
+  width: 90%;
+  height: 99%;
+  margin: 0 auto;
+}
+
 .table-th {
   min-width: 200px;
   padding: 0px 4px 0px 2px;

@@ -2,7 +2,7 @@ import React from "react";
 import { CardMedia, Typography } from "@material-ui/core";
 import Grid from "@material-ui/core/Grid";
 import "./index.css";
-import ExcelIcon from "../../redux/uils/icons/iconfinder_excel_272697.png";
+import ExcelIcon from "../../redux/uils/icons/excel.svg";
 import { NavLink } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import {
@@ -31,7 +31,7 @@ export default function MyDocuments({ docsList }) {
         {(docsList || []).map((excel) => (
           <div key={excel.id} className="card-file">
             <div className="card-header">{excel.file_name}</div>
-            <CardMedia className="icon-card" type="file" image={ExcelIcon} />
+            <CardMedia className="icon-card-my" type="file" image={ExcelIcon} />
             <NavLink to={`/docs/my_doc/${excel.id}`}>
               <h5
                 className="card-footer-my"

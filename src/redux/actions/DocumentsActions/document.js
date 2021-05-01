@@ -22,7 +22,6 @@ export const getExcelFileTable = (id) => (dispatch) => {
   const token = localStorage.getItem("token")
   axios
     .get(baseURL, {id: id})
-    .get(baseURL)
     .then((result) => {
       dispatch({ type: constants.GET_TABLE_SUCCESS, payload: result.data })
     })

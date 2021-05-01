@@ -8,25 +8,7 @@ import TableDoc from "../Docs/TableDoc"
 import UpdateProfile from "../Profile/UpdateProfile"
 
 export default function Vlad() {
-<<<<<<< HEAD
-    const userData = useSelector((state) => state.data.userData)
-    const docsList = useSelector((state) => state.docs.getTemplateExcelVlad)
-    return (
-        <BrowserRouter>
-            <div>
-                <Switch>
-                    <Route path="/vlad">
-                        <Header userData={userData}/>
-                        <Message docsList={docsList}/>
-                        <Footer/>
-                    </Route>
-                    <Route path="/docs/my_doc/:id" component={TableDoc} />
-                </Switch>
-            </div>
-        </BrowserRouter>
-    )
-}
-=======
+
   const userData = useSelector((state) => state.data.userData)
   const docsList = useSelector((state) => state.docs.getTemplateExcelVlad)
   const successUpdate = useSelector((state) => state.data.updateProfile.success)
@@ -50,4 +32,3 @@ export default function Vlad() {
     </BrowserRouter>
   )
 }
->>>>>>> 58f596da6c44e24ed96682f3c2104ed0b2152a6c
