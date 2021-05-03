@@ -29,7 +29,7 @@ export default function MyDocuments({ docsList }) {
       </Typography>
       <Grid container direction="row" justify="flex-start" alignItems="center">
         {(docsList || []).map((excel) => (
-          <div key={excel.id} className="card-file">
+          <div key={excel.id} className="card-file-my">
             <div className="card-header">{excel.file_name}</div>
             <CardMedia className="icon-card-my" type="file" image={ExcelIcon} />
             <NavLink to={`/docs/my_doc/${excel.id}`}>

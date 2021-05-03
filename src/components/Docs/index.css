@@ -19,6 +19,18 @@
   margin: 10px;
 }
 
+.card-file-my {
+  width: 160px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid #2e7d32;
+  border-radius: 4px;
+  overflow: hidden;
+  margin: 10px;
+}
+
 .card-header {
   color: black;
   text-align: center;
@@ -37,6 +49,7 @@
   user-select: none;
 }
 .card-footer-my {
+  border: none;
   text-align: center;
   font-size: 12px;
   font-weight: 600;
@@ -54,8 +67,8 @@
   margin-top: 5px;
 }
 .card-footer-downloader-my {
-  width: 137px;
-  height: 27px;
+  width: 138px;
+  height: 24px;
   border: 1px solid #2e7d32;
   color: #2e7d32;
   display: flex;
@@ -63,6 +76,7 @@
   align-items: center;
 }
 .card-footer-downloader a {
+  color: #374f6b;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -82,8 +96,8 @@
   margin: 0 auto;
 }
 
-.icon-card-my  {
-  width: 90%;
+.icon-card-my {
+  width: 39%;
   height: 99%;
   margin: 0 auto;
 }
@@ -146,7 +160,6 @@ thead tr:nth-child(4) {
 
 .table-docs {
   overflow-y: hidden;
-  margin-top: 2rem;
   text-align: center;
   font-family: sans-serif;
 }
@@ -174,9 +187,7 @@ thead tr:nth-child(4) {
 }
 
 .MuiTypography-h5 {
-  color: #2e7d32;
+  color: #374f6b;
   text-transform: uppercase;
-  font-weight: 900;
-  height: 50px;
   font-family: "Roboto", sans-serif;
 }
