@@ -36,7 +36,13 @@
   background: white;
   user-select: none;
 }
-
+.card-footer-my {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  background: white;
+  user-select: none;
+}
 .card-footer-downloader {
   width: 137px;
   height: 27px;
@@ -47,7 +53,15 @@
   align-items: center;
   margin-top: 5px;
 }
-
+.card-footer-downloader-my {
+  width: 137px;
+  height: 27px;
+  border: 1px solid #2e7d32;
+  color: #2e7d32;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .card-footer-downloader a {
   display: flex;
   align-items: center;
@@ -64,6 +78,12 @@
 
 .icon-card {
   width: 60%;
+  height: 99%;
+  margin: 0 auto;
+}
+
+.icon-card-my  {
+  width: 90%;
   height: 99%;
   margin: 0 auto;
 }
