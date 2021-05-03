@@ -1,4 +1,4 @@
-import constants from '../constants'
+import constants from "../constants"
 
 const initialState = {
   userData: {},
@@ -28,7 +28,7 @@ const initialState = {
     loading: false,
     failed: false,
   },
-  token: '',
+  token: "",
   resetPassword: {
     success: false,
     loading: false,
@@ -137,7 +137,7 @@ const reducer = (state = initialState, action) => {
           loading: false,
           failed: false,
         },
-        token: '',
+        token: "",
       }
     case constants.AUTH_LOADING:
       return {

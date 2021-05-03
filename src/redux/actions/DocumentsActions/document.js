@@ -21,7 +21,7 @@ export const getExcelFileTable = (id) => (dispatch) => {
   const baseURL = `${point}/api/reports/reports-list-filter/?user=&excel_file=${id}`
   const token = localStorage.getItem("token")
   axios
-    .get(baseURL, {id: id})
+    .get(baseURL, { id: id })
     .get(baseURL)
     .then((result) => {
       dispatch({ type: constants.GET_TABLE_SUCCESS, payload: result.data })
@@ -115,6 +115,7 @@ export const getTemplateExcelFileVlad = () => (dispatch) => {
         type: constants.GET_TEMPLATE_EXCEL_FILE_SUCCESS_VLAD,
         payload: result.data,
       })
+      getFileInfo(result.data.user)
     })
     .catch((error) => {
       dispatch({
