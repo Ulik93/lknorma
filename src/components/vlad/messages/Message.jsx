@@ -32,51 +32,67 @@ export default function Message({ docsList }) {
         <div onClick={() => dispatch(logout())}>Выйти</div>
       </button>
 
-      {(docsList || []).map((excel) => (
-        <div className={style.flex} key={excel.id}>
-          <div className={style.flex1}>
-            <CardMedia
-              className={style.card_size}
-              type="file"
-              image={ExcelIcon}
-            />
+      {(docsList || []).map((excel) => {
+        let excel_date = excel.date_send
+        let date = excel_date.slice(0, 10)
+        let time = excel_date.slice(11, 16)
 
-            <NavLink to={`/docs/my_doc/${excel.id}`}>
+        return (
+          <div className={style.flex} key={excel.id}>
+            <div className={style.flex1}>
+              <CardMedia
+                className={style.card_size}
+                type="file"
+                image={ExcelIcon}
+              />
+
+              <NavLink to={`/docs/my_doc/${excel.id}`}>
+                <button
+                  className={style.card_footer}
+                  onClick={() => handleGetTable(excel.id)}
+                >
+                  open
+                </button>
+              </NavLink>
               <button
                 className={style.card_footer}
-                onClick={() => handleGetTable(excel.id)}
+                onClick={() => handleSendExcelFile(excel.id, false)}
               >
-                open
+                Delete
               </button>
-            </NavLink>
-            <button
-              className={style.card_footer}
-              onClick={() => handleSendExcelFile(excel.id, false)}
-            >
-              Delete
-            </button>
-            <br />
-            <button className={style.card_footer}>
-              <a href={`${excel.excel_file}`} download>
-                Скачать
-              </a>
-            </button>
-          </div>
-          <div className={`${style.flex1} ${style.info}`}>
-            <div>
-              <span className={style.file_name}>Имя файла: </span>{" "}
-              {excel.file_name}
+              <br />
+              <button className={style.card_footer}>
+                <a href={`${excel.excel_file}`} download>
+                  Скачать
+                </a>
+              </button>
             </div>
-            <br />
-            <button
-              onClick={() => handleGetInfo(excel.user)}
-              className={style.btn_info}
-            >
-              информация
-            </button>
+            <div className={`${style.flex1} ${style.info}`}>
+              <div>
+                <span className={style.file_name}>Имя файла: </span>
+                {excel.file_name}
+              </div>
+              <br />
+              <div>
+                <span className={style.file_name}>Дата: </span>
+                {date}
+              </div>
+              <br />
+              <div>
+                <span className={style.file_name}>Время: </span>
+                {time}
+              </div>
+              <br />
+              <button
+                onClick={() => handleGetInfo(excel.user)}
+                className={style.btn_info}
+              >
+                информация
+              </button>
+            </div>
           </div>
-        </div>
-      ))}
+        )
+      })}
     </div>
   )
 }
