@@ -1,23 +1,23 @@
-import React from 'react'
-import './App.css'
-import Sidebar from './components/Sidebar/Sidebar'
-import Registration from './components/Registr/Registrationn'
-import Login from './components/Login/Login'
-import ResetPassword from './components/ResetPassword/ResetPassword.js'
-import NewPassword from './components/NewPassword/NewPassword.js'
-import Loading from './components/Loading/Loading'
-import { useDispatch, useSelector } from 'react-redux'
-import { getData, login, logout } from './redux/actions/index'
-import { BrowserRouter, Redirect, Switch, Route } from 'react-router-dom'
-import Activate from './components/Activate/Activate'
-import Vlad from './components/vlad/Vlad';
+import React from "react"
+import "./App.css"
+import Sidebar from "./components/Sidebar/Sidebar"
+import Registration from "./components/Registr/Registrationn"
+import Login from "./components/Login/Login"
+import ResetPassword from "./components/ResetPassword/ResetPassword.js"
+import NewPassword from "./components/NewPassword/NewPassword.js"
+import Loading from "./components/Loading/Loading"
+import { useDispatch, useSelector } from "react-redux"
+import { getData, login, logout } from "./redux/actions/index"
+import { BrowserRouter, Redirect, Switch, Route } from "react-router-dom"
+import Activate from "./components/Activate/Activate"
+import Vlad from "./components/vlad/Vlad"
 
 import {
   getDocsList,
   getTemplateExcelFile,
   uploadExcelFile,
-  getTemplateExcelFileVlad
-} from './redux/actions/DocumentsActions/document'
+  getTemplateExcelFileVlad,
+} from "./redux/actions/DocumentsActions/document"
 
 const App = () => {
   const dispatch = useDispatch()
@@ -30,8 +30,8 @@ const App = () => {
   const getDataLoading = useSelector((state) => state.data.get.loading)
 
   React.useEffect(() => {
-    dispatch(getData(window.localStorage.getItem('token') || token))
-  }, [getData, window.localStorage.getItem('token'), login, token, logout])
+    dispatch(getData(window.localStorage.getItem("token") || token))
+  }, [getData, window.localStorage.getItem("token"), login, token, logout])
 
   React.useEffect(() => {
     dispatch(getDocsList())
@@ -40,8 +40,26 @@ const App = () => {
   }, [getDocsList, uploadExcelFile, uploadState])
   return (
     <BrowserRouter>
-      <div className='app'>
+      <div className="app">
         <Switch>
+<<<<<<< HEAD
+          <Route path="/auth" component={Registration} exact />
+          <Route path="/reset" component={ResetPassword} exact />
+          <Route path="/newpassword" component={NewPassword} exact />
+          <Route path="/auth/activate/:token" component={Activate} />
+
+          {(vlad || is_vlad) && <Route path="/vlad" component={Vlad} exact />}
+          {(vlad || is_vlad) && <Redirect to="/vlad" />}
+
+          {(loginSuccess || getSuccess) && vlad == false && (
+            <Route path="/main" component={Sidebar} />
+          )}
+          {(loginSuccess || getSuccess) && vlad == false && (
+            <Redirect to="/main" />
+          )}
+          {!loginSuccess && !vlad && <Route path="/login" component={Login} />}
+          {!loginSuccess && !vlad && <Redirect to="/login" />}
+=======
           <Route path='/auth' component={Registration} exact />
           <Route path='/reset' component={ResetPassword} exact />
           <Route path='/newpassword' component={NewPassword} exact />
@@ -52,6 +70,7 @@ const App = () => {
           {((loginSuccess || getSuccess) && vlad == false) && <Redirect to='/main' />}
           {!loginSuccess && !vlad && <Route path='/login' component={Login} />}
           {!loginSuccess && !vlad && <Redirect to='/login' />}
+>>>>>>> 381bf15620ed1ea41503e5daeb41093dfb1df93b
         </Switch>
         {getDataLoading && <Loading />}
       </div>
