@@ -12,6 +12,7 @@ import { NavLink } from "react-router-dom"
 import { auth } from "../../redux/actions/index"
 import NumberFormat from "react-number-format"
 import shortid from "shortid"
+import Modal from "./Modal"
 
 export default function Registration() {
   const dispatch = useDispatch()
@@ -279,21 +280,26 @@ export default function Registration() {
       </Formik>
 
       {authSuccess && (
-        <div className="success-auth">
-          Вы успешно зарегистрировались, перейдите на почту и подтвердите
-          аккаунт
-        </div>
+        <Modal>
+          <div className="success-auth">
+            Вы успешно зарегистрировались, перейдите на почту и подтвердите
+            аккаунт
+          </div>
+        </Modal>
       )}
+
       {authSuccess && (
         <NavLink className="success-link" to="/login">
           Войти после подтверждения
         </NavLink>
       )}
       {authError && (
-        <div className="success-error">
-          Пользователь под данной почтой или номером телефона уже был
-          зарегистрирован
-        </div>
+        <Modal>
+          <div className="success-error">
+            Пользователь под данной почтой или номером телефона уже был
+            зарегистрирован
+          </div>
+        </Modal>
       )}
       {!authSuccess && (
         <NavLink className="login-link" to="/login">
