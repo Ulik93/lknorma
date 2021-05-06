@@ -1,21 +1,25 @@
-import React from "react"
+import React from "react";
+import Calendar from "react-calendar";
+
 import {
   Button,
   FormHelperText,
   TextField,
   Typography,
-} from "@material-ui/core"
-import { useDispatch, useSelector } from "react-redux"
-import "./update-profile.css"
-import Grid from "@material-ui/core/Grid"
-import Box from "@material-ui/core/Box"
-import { updateProfile } from "../../redux/actions"
+} from "@material-ui/core";
+import { useDispatch, useSelector } from "react-redux";
+import "./update-profile.css";
+import Grid from "@material-ui/core/Grid";
+import Box from "@material-ui/core/Box";
+import { updateProfile } from "../../redux/actions";
 
 export default function UpdateProfile() {
-  const user = useSelector((state) => state.data.userData)
-  const loading = useSelector((state) => state.data.updateProfile.loading)
-  const successUpdate = useSelector((state) => state.data.updateProfile.success)
-  const dispatch = useDispatch()
+  const user = useSelector((state) => state.data.userData);
+  const loading = useSelector((state) => state.data.updateProfile.loading);
+  const successUpdate = useSelector(
+    (state) => state.data.updateProfile.success
+  );
+  const dispatch = useDispatch();
   const [data, setData] = React.useState({
     first_name: user.first_name,
     last_name: user.last_name,
@@ -23,21 +27,27 @@ export default function UpdateProfile() {
     username: user.username,
     address: user.address,
     birthday: user.birthday,
-  })
-  const [valid, setValid] = React.useState(false)
+  });
+  const [valid, setValid] = React.useState(false);
   React.useEffect(() => {
     if (
       data.first_name.length > 3 &&
-      data.last_name.length > 3 &&
+      data.last_name.length > 1 &&
       data.phone.length > 9 &&
       data.birthday.length > 5 &&
       data.address.length > 3
     ) {
-      setValid(true)
+      setValid(true);
     } else {
-      setValid(false)
+      setValid(false);
     }
-  }, [data.first_name, data.last_name, data.phone, data.birthday, data.address])
+  }, [
+    data.first_name,
+    data.last_name,
+    data.phone,
+    data.birthday,
+    data.address,
+  ]);
   return (
     <div className="update-profile-card">
       <Typography
@@ -61,7 +71,7 @@ export default function UpdateProfile() {
           </Box>
           <Box pt={2}>
             <FormHelperText id="filled-weight-helper-text">
-              Телефон
+              Телефон {<span>+996 ___ __ __ __</span>}
             </FormHelperText>
             <TextField
               id="outlined-basic"
@@ -95,8 +105,11 @@ export default function UpdateProfile() {
             />
           </Box>
           <Box pt={2}>
-            <FormHelperText id="filled-weight-helper-text">
-              Дата рождения
+            <FormHelperText
+              type="date"
+              id="filled-weight-helper-text"
+            >
+              Дата рождения {<span>2021.12.01</span>}
             </FormHelperText>
             <TextField
               id="outlined-basic"
@@ -111,7 +124,7 @@ export default function UpdateProfile() {
             <Button
               disabled={!valid}
               onClick={() => {
-                dispatch(updateProfile(data))
+                dispatch(updateProfile(data));
                 setData({
                   first_name: data.first_name,
                   last_name: data.last_name,
@@ -119,7 +132,7 @@ export default function UpdateProfile() {
                   username: data.username,
                   address: data.address,
                   birthday: data.birthday,
-                })
+                });
               }}
               variant="contained"
               style={{ marginBottom: 10 }}
@@ -136,5 +149,5 @@ export default function UpdateProfile() {
         )}
       </Grid>
     </div>
-  )
+  );
 }

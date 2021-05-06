@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 // import { toast, ToastContainer } from 'react-toastify'
-
+import './Activate.css'
 import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { activateAccount } from '../../redux/actions'
@@ -52,17 +52,22 @@ const Activate = () => {
         pauseOnHover
       /> */}
       <div className='col-md-6 text-center'>
-        <h1 className='my-2 text-uppercase font-weight-bold'>Account activation page</h1>
+        <h1 className='my-2 text-uppercase font-weight-bold'>Нажмите на кнопку, чтобы Активировать аккаунт!</h1>
         {!successActive ? (
           <button
             className='btn'
             style={{ backgroundColor: '#3f51b5', color: '#fff' }}
             onClick={handleSubmit}>
-            Activate account
+            Активировать аккаунт
           </button>
         ) : (
           <p>
-            Акаунт активирован <a href='http://localhost:3000/login'>войдите</a>
+            Акаунт активирован!  <a href='http://lk.norma.kg/login'> <button
+            className='btn'
+            style={{ backgroundColor: '#3f51b5', color: '#fff' }}
+            >
+            войдите
+          </button></a>
           </p>
         )}
       </div>

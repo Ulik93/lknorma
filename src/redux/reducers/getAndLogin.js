@@ -104,7 +104,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         token: action.payload,
-        is_vlad: action.payload,
+        is_: action.payload,
         login: {
           success: true,
           loading: false,

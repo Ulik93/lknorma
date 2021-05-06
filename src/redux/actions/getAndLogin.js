@@ -28,7 +28,6 @@ export const auth = (data) => (dispatch) => {
 export const login = (data) => (dispatch) => {
   const url = `${point}/api/auth/users/login/`
   dispatch({ type: constants.LOGIN_LOADING })
-  console.log(data)
   axios
     .post(url, data)
     .then(({ data }) => {

@@ -1,27 +1,27 @@
-import React from "react";
-import { CardMedia, Typography } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid";
-import "./index.css";
-import ExcelIcon from "../../redux/uils/icons/excel.svg";
-import { NavLink } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import React from "react"
+import { CardMedia, Typography } from "@material-ui/core"
+import Grid from "@material-ui/core/Grid"
+import "./index.css"
+import ExcelIcon from "../../redux/uils/icons/excel.svg"
+import { NavLink } from "react-router-dom"
+import { useDispatch } from "react-redux"
 import {
   deleteExcelFileTable,
   getExcelFileTable,
   sendExcelFileTable,
-} from "../../redux/actions/DocumentsActions/document";
+} from "../../redux/actions/DocumentsActions/document"
 
 export default function MyDocuments({ docsList }) {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const handleGetExcelFile = (id) => {
-    dispatch(getExcelFileTable(id));
-  };
+    dispatch(getExcelFileTable(id))
+  }
   const handleDeleteExcelFile = (id) => {
-    dispatch(deleteExcelFileTable(id));
-  };
+    dispatch(deleteExcelFileTable(id))
+  }
   const handleSendExcelFile = (id, is_order) => {
-    dispatch(sendExcelFileTable(id, is_order));
-  };
+    dispatch(sendExcelFileTable(id, is_order))
+  }
   return (
     <div className="container">
       <Typography variant="h5" component="h6">
@@ -48,8 +48,7 @@ export default function MyDocuments({ docsList }) {
             </button>
             <button
               className="card-footer-my"
-              onClick={() => handleSendExcelFile(excel.id, true)
-              }
+              onClick={() => handleSendExcelFile(excel.id, true)}
             >
               <div className="card-footer-downloader-my">Отправить</div>
             </button>
@@ -57,5 +56,5 @@ export default function MyDocuments({ docsList }) {
         ))}
       </Grid>
     </div>
-  );
+  )
 }
