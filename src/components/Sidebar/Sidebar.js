@@ -319,21 +319,42 @@ export default function MiniDrawer() {
                       path: "/main/docs",
                       icon: "far fa-file-alt",
                     },
+                
                     {
-                      text: "Задачи",
-                      path: "/main/todos",
-                      icon: "fas fa-clipboard-list",
+                      text: "Одежда",
+                      path: "/main/clothes",
+                      icon: "fas fa-tshirt",
                     },
                     {
-                      text: "Календарь",
-                      path: "/main/calendar",
-                      icon: "fas fa-calendar-alt",
+                      text: "Обувь",
+                      path: "/main/shoes",
+                      icon: "fas fa-shoe-prints",
                     },
                     {
-                      text: "Контакты",
-                      path: "/main/contacts",
-                      icon: "fas fa-comment",
+                      text: "Алкоголь",
+                      path: "/main/drinks",
+                      icon: "fas fa-wine-bottle",
                     },
+                    {
+                      text: "Табак",
+                      path: "/main/tobacco",
+                      icon: "fas fa-smoking",
+                    },
+                    {
+                      text: "Парфюм",
+                      path: "/main/perfume",
+                      icon: "fas fa-spray-can",
+                    },
+                          {
+                    text: "Задачи",
+                    path: "/main/todos",
+                    icon: "fas fa-clipboard-list",
+                  },
+                  {
+                    text: "Календарь",
+                    path: "/main/calendar",
+                    icon: "fas fa-calendar-alt",
+                  },
                   ].map((data, index) => (
                     <ListItem button key={data.text}>
                       <ListItemIcon>
